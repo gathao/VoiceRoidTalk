@@ -1,0 +1,19 @@
+﻿<Window x:Class="VoiceRoidTalk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VoiceRoidTalk"
+        xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        mc:Ignorable="d"
+        Title="VoiceroidTalk" Height="195" Width="450"
+        Closing="MainWindow_Closing">
+    <Grid Name="MainGrid">
+        <TextBox Name="TalkEditor" HorizontalAlignment="Left" Height="62" Margin="10,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311"/>
+        <Button Content="話しかける" HorizontalAlignment="Left" Margin="326,117,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Button_Click"/>
+        <Button Content="ボイロ起動" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" Height="35" Click="Button_Click_1"/>
+        <Button Name="VoiceRecognitionButton" Content="音声認識開始" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="125" Height="35" Click="Button_Click_2"/>
+        <Image Margin="326,8,10,50" Source=".\resouces\icon_kiritan.png" Stretch="Fill"/>
+        <Label Content="voiceroid: Touhoku Kiritan.EXE　▶&#xD;&#xA;(select voiceroid is icon click)" FontSize="9" HorizontalAlignment="Left" Margin="170,50,0,0" VerticalAlignment="Top" Height="35" Width="151"/>
+    </Grid>
+</Window>
