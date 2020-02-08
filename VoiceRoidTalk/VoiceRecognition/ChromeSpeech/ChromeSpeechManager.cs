@@ -117,7 +117,7 @@ namespace VoiceRoidTalk.VoiceRecognition.ChromeSpeech
 
         public override bool IsCanRecognition()
         {
-            return true;
+            return this.IsRecognizing();
         }
 
         public override bool IsRecognizing()
@@ -127,6 +127,8 @@ namespace VoiceRoidTalk.VoiceRecognition.ChromeSpeech
 
         public override void Dispose()
         {
+            this._isRecognizing = false;
+
             if (this.ChromeMonitoringTask != null)
             {
                 this.ChromeMonitoringTask.Wait();

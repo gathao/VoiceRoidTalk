@@ -37,6 +37,8 @@ namespace VoiceRoidTalk
 
         private Task resultTextMonitoringTask = null;
 
+
+
         public string StartupPath
         {
             get
@@ -48,10 +50,6 @@ namespace VoiceRoidTalk
         public MainWindow()
         {
             InitializeComponent();
-
-            VoiceroidExecute();
-
-            VoiceRecognigExecute();
         }
 
         private void VoiceroidExecute()
@@ -61,6 +59,11 @@ namespace VoiceRoidTalk
 
         private void VoiceRecognigExecute()
         {
+            if (this.voiceRecognitionManager.IsCanRecognition())
+            {
+                return;
+            }
+
             this.voiceRecognitionManager.Create();
 
             this.resultTextMonitoringTask = Task.Run(() =>
@@ -70,24 +73,30 @@ namespace VoiceRoidTalk
 
                 while (true)
                 {
-                    try
+                    if (this.voiceRecognitionManager.IsCanRecognition())
                     {
-                        Thread.Sleep(250);
-
-                        recondingResult = this.voiceRecognitionManager.ResultText;
-
-                        if (prevRecondingResult.CompareTo(recondingResult) != 0)
+                        try
                         {
-                            prevRecondingResult = recondingResult;
-                            kiritanManager.Speach(recondingResult);
+                            Thread.Sleep(250);
+
+                            recondingResult = this.voiceRecognitionManager.ResultText;
+
+                            if (prevRecondingResult.CompareTo(recondingResult) != 0)
+                            {
+                                prevRecondingResult = recondingResult;
+                                kiritanManager.Speach(recondingResult);
+                            }
+
                         }
-
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
                     }
-                    catch (Exception e)
+                    else
                     {
-                        Console.WriteLine(e);
+                        return;
                     }
-
                 }
             });
         }
@@ -100,15 +109,12 @@ namespace VoiceRoidTalk
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string talkString = this.TalkEditor.Text;
-
-            talkString = this.voiceRecognitionManager.ResultText;
-
             kiritanManager.Speach(talkString);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            voiceRecognitionManager.RecognizeStart();
+            VoiceRecognigExecute();
         }
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
