@@ -22,8 +22,9 @@ using WebSocketSharp.Server;
 using VoiceroidManager;
 using VoiceRoidTalk.VoiceRecognition.Core;
 using VoiceRoidTalk.VoiceRecognition.ChromeSpeech;
-using System.Reactive.Linq;
+using VoiceroidCharBot;
 using System.Threading;
+using System.Diagnostics;
 
 namespace VoiceRoidTalk
 {
@@ -34,6 +35,7 @@ namespace VoiceRoidTalk
     {
         VoiceroidMessageManager kiritanManager = new KiritanMessageManager();
         VoiceRecognitionManager voiceRecognitionManager = new ChromeSpeechManager();
+        RuleTypeCharBot chartBot = null;
 
         private Task resultTextMonitoringTask = null;
 
@@ -50,6 +52,13 @@ namespace VoiceRoidTalk
         public MainWindow()
         {
             InitializeComponent();
+
+            ChatBotInitialize();
+        }
+
+        private void ChatBotInitialize()
+        {
+            chartBot = new RuleTypeCharBot();
         }
 
         private void VoiceroidExecute()
@@ -84,7 +93,12 @@ namespace VoiceRoidTalk
                             if (prevRecondingResult.CompareTo(recondingResult) != 0)
                             {
                                 prevRecondingResult = recondingResult;
-                                kiritanManager.Speach(recondingResult);
+
+                                string answer = chartBot.Talk(prevRecondingResult);
+
+                                kiritanManager.Speach(answer);
+
+                                ProcessStart(answer);
                             }
 
                         }
@@ -101,8 +115,45 @@ namespace VoiceRoidTalk
             });
         }
 
+        class ProcessInfo
+        {
+            public string exePath;
+            public Process process;
+        }
+
+        private readonly Dictionary<string, ProcessInfo> processDictionary = new Dictionary<string, ProcessInfo>()
+        {
+            {
+                "サクラエディタを起動するよ",
+                new ProcessInfo()
+                {
+                    exePath = @"C:\Program Files (x86)\sakura\sakura.exe",
+                    process = null,
+                }
+            },
+        };
+
+        public void ProcessStart(string keyword)
+        {
+            ProcessInfo info = processDictionary[keyword];
+
+            if (info == null)
+            {
+                return;
+            }
+
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+            processStartInfo.FileName = info.exePath;
+            processStartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(info.exePath);
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.UseShellExecute = false;
+
+            info.process = Process.Start(processStartInfo);
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            //this.TalkEditor.Text = chartBot.Talk("名前は？");
             VoiceroidExecute();
         }
 

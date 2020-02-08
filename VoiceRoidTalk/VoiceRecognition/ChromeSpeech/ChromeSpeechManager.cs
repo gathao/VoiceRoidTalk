@@ -135,8 +135,11 @@ namespace VoiceRoidTalk.VoiceRecognition.ChromeSpeech
                 this.ChromeMonitoringTask = null;
             }
 
-            this.driver.Close();
-            this.driver.Quit();
+            if (this.driver != null)
+            {
+                this.driver.Close();
+                this.driver.Quit();
+            }
         }
     }
 }

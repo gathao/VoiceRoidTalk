@@ -48,6 +48,12 @@
     <OutputPath>bin\x86\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LibNMeCab, Version=0.0.6.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMeCab.0.06.4\lib\LibNMeCab.dll</HintPath>
+    </Reference>
+    <Reference Include="LibNMeCabNetStandard, Version=0.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMeCabNetStandard.0.7.3\lib\netstandard2.0\LibNMeCabNetStandard.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -210,6 +216,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="dic\char.bin" />
+    <None Include="dic\dicrc" />
+    <None Include="dic\ipadic\char.bin" />
+    <None Include="dic\ipadic\dicrc" />
+    <None Include="dic\ipadic\matrix.bin" />
+    <None Include="dic\ipadic\sys.dic" />
+    <None Include="dic\ipadic\unk.dic" />
+    <None Include="dic\matrix.bin" />
+    <None Include="dic\sys.dic" />
+    <None Include="dic\unk.dic" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -237,6 +253,10 @@
       <Project>{7770e6e4-7921-4362-8f89-c71cd04de8a8}</Project>
       <Name>VoiceroidManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VoiceroidTalkCharBot\VoiceroidTalkCharBot.csproj">
+      <Project>{16d394e2-cab5-4e45-9be6-4204bdde3227}</Project>
+      <Name>VoiceroidTalkCharBot</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GoogleSpeechApiResources\css\" />
@@ -253,8 +273,10 @@
     <Error Condition="!Exists('..\packages\CefSharp.Wpf.75.1.143\build\CefSharp.Wpf.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Wpf.75.1.143\build\CefSharp.Wpf.props'))" />
     <Error Condition="!Exists('..\packages\CefSharp.Wpf.75.1.143\build\CefSharp.Wpf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Wpf.75.1.143\build\CefSharp.Wpf.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\NMeCab.0.06.4\build\NMeCab.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NMeCab.0.06.4\build\NMeCab.targets'))" />
   </Target>
   <Import Project="..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.targets')" />
   <Import Project="..\packages\CefSharp.Wpf.75.1.143\build\CefSharp.Wpf.targets" Condition="Exists('..\packages\CefSharp.Wpf.75.1.143\build\CefSharp.Wpf.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\NMeCab.0.06.4\build\NMeCab.targets" Condition="Exists('..\packages\NMeCab.0.06.4\build\NMeCab.targets')" />
 </Project>
