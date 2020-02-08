@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceroidManager", "VoiceRo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceRoidTalk", "VoiceRoidTalk\VoiceRoidTalk.csproj", "{07BF7076-3C1D-49C5-8037-88E652A28737}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumManager", "SeleniumManager\SeleniumManager.csproj", "{420037BE-A96D-43DD-87ED-A41944540554}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumManager", "SeleniumManager\SeleniumManager.csproj", "{420037BE-A96D-43DD-87ED-A41944540554}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceroidTalkAI", "VoiceroidTalkAI\VoiceroidTalkAI.csproj", "{8A152EB8-F50A-4958-8E25-06333BB394D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,24 @@ Global
 		{420037BE-A96D-43DD-87ED-A41944540554}.x86|x64.Build.0 = Debug|Any CPU
 		{420037BE-A96D-43DD-87ED-A41944540554}.x86|x86.ActiveCfg = Debug|Any CPU
 		{420037BE-A96D-43DD-87ED-A41944540554}.x86|x86.Build.0 = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Debug|x64.Build.0 = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Debug|x86.Build.0 = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Release|x64.ActiveCfg = Release|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Release|x64.Build.0 = Release|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.Release|x86.Build.0 = Release|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.x86|x64.ActiveCfg = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.x86|x64.Build.0 = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.x86|x86.ActiveCfg = Debug|Any CPU
+		{8A152EB8-F50A-4958-8E25-06333BB394D9}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

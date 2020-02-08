@@ -18,7 +18,7 @@ namespace VoiceRoidTalk.VoiceRecognition.ChromeSpeech
     {
         private IWebDriver driver = null;
 
-        private int windowWidth = 600;
+        private int windowWidth = 450;
         private int windowHeight = 120;
 
         private bool _isRecognizing = false;
